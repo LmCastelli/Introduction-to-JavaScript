@@ -1,4 +1,4 @@
-/*🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️ Task 1: Warm-up! 🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️*/
+ /*🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️ Task 1: Warm-up! 🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️*/
 
 /*MAKE SURE TO RETURN ALL OF THE ANSWERS INSIDE OF A FUNCTION (tasks 1d through task 7), IF YOU DON'T, THE AUTOGRADER WILL NOT WORK*/
 
@@ -20,8 +20,10 @@ Do the following:
    HINT: no function required
 */
 
-
-
+var votingAge = 20;
+if (votingAge > 18) {
+  console.log(true);
+}
 /*
 Task 1b - Values
 
@@ -32,6 +34,9 @@ Do the following:
 
    HINT: no function required
 */
+var bug = "grasshopper";
+var fish = "salmon";
+bug = fish;
 
 
 
@@ -47,6 +52,8 @@ Do the following:
 
    HINT: look up the Number method
 */
+var year = "1999";
+year = 1999;
 
 
 
@@ -60,8 +67,8 @@ Do the following:
    3. Multiply a and b and return the answer
 */
 
-function multiply(/*add your code here*/){
-  /*add your code here*/
+function multiply(a,b){
+  return a * b;
 }
 
 
@@ -76,8 +83,8 @@ Do the following:
  3. Return the newly calculated age
 */
 
-function dogYears(/*add your code here*/){
-  /*add your code here*/
+function dogYears(age){
+  return age * 7;
 }
 
 
@@ -109,8 +116,32 @@ Puppies less than 1 year
 NOTE: If done correctly, a weight of 15 lbs and age of 1 year would return 0.44999999999999996
 */  
 
-function hungryDog(/*add your code here*/){
-  /*add your code here*/
+function hungryDog(weight,age){
+  if (age >= 1) {
+    if (weight < 5) {
+      return weight * .05;
+    }
+    else if (weight <= 10) {
+      return weight * .04;
+    }
+    else if (weight <= 15) {
+      return weight * .03;
+    }
+    else {
+      return weight * .02;
+    }
+  }
+  else {
+    if (age <= .33) {
+      return weight * .1;
+    }
+    else if (age < .58) {
+      return weight * .05;
+    }
+    else { 
+      return weight * .04;
+    }
+  }
 }
 
 
@@ -135,10 +166,48 @@ RULES OF THE GAME: Scissors beats Paper | Paper beats Rock | Rock beats Scissors
 
 HINT: Remember that the order in which we pass in our arguments matters when it comes to parameters
 */
-
+var computer = Math.floor(Math.random() * 3);
 function game(user, computer){
-  /*add your code here*/
-}
+  if (computer == 0) {
+    var computerChoice = "Rock";
+  } 
+  else if (computer == 1) {
+    var computerChoice = "Paper";
+  }
+  else {
+    var computerChoice = "Scissors";
+  }
+
+  if (computerChoice === user) {
+    return "it's a tie";
+  }
+
+  if (computerChoice == "Rock") {
+    if (user == "Scissors") {
+      return "you lose!";
+    }
+    else {
+      return "you win!";
+    }
+  }
+  else if (computerChoice == "Paper"){
+    if (user == "Rock") {
+      return "you lose!";
+    }
+    else {
+      return "you win";
+    }
+  }
+  else {
+    if (user == "Paper") {
+      return "you lose!";
+    }
+    else {
+      return "you win!";
+    }
+  }
+  }
+
 
 
 
@@ -153,9 +222,10 @@ Using the miles function below do the following:
 3. Return the number of miles
 */
 
-function miles(/*add your code here*/){
-  /*add your code here*/
+function miles(kilos){
+  return kilos * .621371;
 }
+
 
 
 
@@ -167,8 +237,8 @@ Using the feet function below do the following:
 3. Return number of feet
 */
 
-function feet(/*add your code here*/){
-  /*add your code here*/
+function feet(cm){
+  return cm * .0328084;
 }
 
 
@@ -203,8 +273,31 @@ Using the grade function below do the following:
  below should return 'you got an F'
 */
 
-function grade(/*Your Code here */){
-/*Your Code here */
+function grade(score){
+  var score = Math.floor(score / 10); 
+  switch(score) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+      return "you got an F";
+      break;
+    case 6:
+      return "you got a D";
+      break;
+    case 7:
+      return "you got a C";
+      break;
+    case 8:
+      return "you got a B";
+      break;
+    case 9:
+    case 10:
+      return "you got an A" ;
+      break;
+  }
 }
 
 
@@ -222,9 +315,17 @@ HINT - try looking up the .includes() method
 */
 
 
-function vowelCounter(/*add your code here*/) {
-  /*add your code here*/
+function vowelCounter(string) {
+  let count = 0;
+  let vowels = "aeiouyAEIOUY"
+  for (let char of string) {
+    if (vowels.includes(char)) {
+      count +=1;
+    }
+  }
+  return count;
 }
+
 
 
 
