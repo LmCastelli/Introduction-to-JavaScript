@@ -167,39 +167,39 @@ RULES OF THE GAME: Scissors beats Paper | Paper beats Rock | Rock beats Scissors
 HINT: Remember that the order in which we pass in our arguments matters when it comes to parameters
 */
 var computer = Math.floor(Math.random() * 3);
-function game(user, computer){
-  if (computer == 0) {
-    var computerChoice = "Rock";
-  } 
-  else if (computer == 1) {
-    var computerChoice = "Paper";
-  }
-  else {
-    var computerChoice = "Scissors";
-  }
+if (computer == 0) {
+  var computer = "Rock";
+} 
+else if (computer == 1) {
+  var computer = "Paper";
+}
+else {
+  var computer = "Scissors";
+}
 
-  if (computerChoice === user) {
+function game(user, computer){
+  if (computer === user) {
     return "it's a tie";
   }
 
-  if (computerChoice == "Rock") {
-    if (user == "Scissors") {
+  if (computer == "rock") {
+    if (user == "scissors") {
       return "you lose!";
     }
     else {
       return "you win!";
     }
   }
-  else if (computerChoice == "Paper"){
-    if (user == "Rock") {
+  else if (computer == "paper"){
+    if (user == "rock") {
       return "you lose!";
     }
     else {
-      return "you win";
+      return "you win!";
     }
   }
   else {
-    if (user == "Paper") {
+    if (user == "paper") {
       return "you lose!";
     }
     else {
@@ -238,7 +238,7 @@ Using the feet function below do the following:
 */
 
 function feet(cm){
-  return cm * .0328084;
+  return cm / 30.48;
 }
 
 
@@ -253,8 +253,12 @@ Using the annoyingSong function below do the following:
     "{number} bottles of soda on the wall, {number} bottles of soda, take one down pass it around {number left over} bottles of soda on the wall"
 */
 
-function annoyingSong(/*add your code here*/){
-      /*add your code here*/
+function annoyingSong(number){
+  for (let i = number; i >0; i--) {
+    let bottles = number;
+    return bottles + " bottles of soda on the wall, " + bottles + " bottles of soda, take one down pass it around " + (bottles-1) + " bottles of soda on the wall"
+  }
+      
 }
 
 
